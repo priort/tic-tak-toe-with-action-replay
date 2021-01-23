@@ -102,9 +102,9 @@ let view = function() {
         drawBoard(gameBoard);
     });
 
-    eventDispatcher.subscribe('winner-determined-event', winnerDeterminedEvent => {
-        viewModel.winner = winnerDeterminedEvent.winner;
-        gameBoard = winnerDeterminedEvent.gameboard;
+    eventDispatcher.subscribe('winner-determined-event', ({gameboard, winner}) => {
+        viewModel.winner = winner;
+        gameBoard = gameboard;
         drawBoard(gameBoard);
     });
 
